@@ -77,7 +77,8 @@ Coding Encoder and Decoder
 - `Encoder` class is a subclass of `torch.nn.Module`
 - `nn` PyTorch module containing classes for all neural network layers
 
-the Encoder class is made up of several layers and blocks:
+**The Encoder class is made up of several layers and blocks:**
+
 - `Conv2d`: Convolutional layer for image processing
 - **ResidualBlock**: A residual block that adds the input to the output
 - **Downsampling**: A downsampling layer that reduces the size of the image by a factor of 2, allowing the network to capture more spatial hierarchies effectively.
@@ -96,19 +97,19 @@ the Encoder class is made up of several layers and blocks:
 - This allows the network to select where to apply transformations where needed.
 - The result in image recognition is that the initial layers might detect edges, where as the deeper layers start to focus on the details, and the deepest layers would piece together the image into something meaningful like object recognition.
 
-Attention Block
+**Attention Block**
 - **Attention Mechanism**: A mechanism that allows the network to focus on important parts of the input while ignoring less important parts.
 - It does that by assigning different weights to different parts of the input.
 - The network learns to assign higher weights to the important parts of the input and lower weights to the less important parts.
 
-#### Hugging Face Diffusion Tutorial
+**Hugging Face Diffusion Tutorial**
 
 - Loading pipelines `from diffusers import DiffusionPipeline`
 - `pipeline = DiffusionPipeline.from_pretrained(model_id)` float32
 - `pipeline = StableDiffusionPipeline.from_pretrained(model_id, torch_dtype=torch.float16)` float16. Much more efficient and similar results.
 - `generator = torch.Generator("cuda").manual_seed(0)` is used to control the randomness of the image generation process. A specific seed to get the same result every time, or use a random seed to get a different result every time.
 
-## Checkpoints:
+**Checkpoints**:
 - Specific versions of ML models that have been saved at particular stages of training.
 
 **Denoising Scheduler:**
